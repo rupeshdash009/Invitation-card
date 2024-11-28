@@ -15,19 +15,7 @@ body {
   margin: 0;
   position: relative;
   overflow: hidden;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  position: relative;
-  overflow: hidden;
-  background-color: #000; /* Fallback background color */
+  background-color: #000;
 }
 
 body::before {
@@ -46,10 +34,10 @@ body::before {
   filter: blur(3px);
   z-index: -1;
   animation: gradient-shift 8s ease-in-out infinite, fade-effect 6s ease-in-out infinite;
-  will-change: transform, opacity; /* Hint to the browser for optimization */
+  will-change: transform, opacity;
 }
 
-/* Background fade animation */
+/* Background Animations */
 @keyframes fade-effect {
   0%, 100% {
     opacity: 1;
@@ -59,7 +47,6 @@ body::before {
   }
 }
 
-/* Gradient shift animation using transform for smoother rendering */
 @keyframes gradient-shift {
   0%, 100% {
     transform: scale(1);
@@ -69,9 +56,6 @@ body::before {
   }
 }
 
-
-
-
 .container {
   display: flex;
   justify-content: center;
@@ -79,18 +63,21 @@ body::before {
   width: 100%;
   max-width: 500px;
   padding: 20px;
+  flex-direction: column;
 }
 
-/* RSVP Card and Invite Card */
+/* Cards */
 .rsvp-card,
 .invite-card {
-  background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+  background: rgba(255, 255, 255, 0.9);
   color: #333;
   padding: 30px;
   border-radius: 15px;
   text-align: center;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   animation: slideIn 1s ease-out;
+  width: 100%;
+  max-width: 400px;
 }
 
 h1 {
@@ -104,7 +91,8 @@ p {
   margin-bottom: 20px;
   line-height: 1.5;
 }
-#vsbm{
+
+#vsbm {
   font-size: 1.5rem;
   color: rgb(94, 0, 0);
   margin-top: -20px;
@@ -146,50 +134,54 @@ button:hover {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Invitation Highlights */
-.details p {
-  margin: 10px 0;
-  font-size: 1.1rem;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-ul li {
-  font-size: 1rem;
-  margin: 10px 0;
-}
-
-/* Animations */
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Responsive Design */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
   .rsvp-card,
   .invite-card {
     padding: 20px;
+    max-width: 90%;
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   button {
     font-size: 1rem;
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rsvp-card,
+  .invite-card {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  input {
+    padding: 8px;
+    font-size: 0.9rem;
   }
 }
